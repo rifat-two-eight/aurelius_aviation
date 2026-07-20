@@ -1,0 +1,471 @@
+1. Brand Vision (সবচেয়ে গুরুত্বপূর্ণ)
+
+ক্লায়েন্ট বলছে—
+
+Aurelius যেন না লাগে:
+
+Aviation Company
+Aircraft Detailing Company
+Luxury Service Company
+Startup
+Private Jet Operator
+
+বরং মনে হবে—
+
+Modern continuation of a great civilization
+
+অর্থাৎ
+
+একটা সভ্যতার উত্তরাধিকার বহনকারী প্রতিষ্ঠান।
+
+Inspiration হিসেবে Rome-এর building copy করতে বলেনি।
+
+Rome যে values represent করত, সেটা নিতে বলেছে।
+
+যেমন—
+
+Order over Chaos
+Discipline over Indulgence
+Excellence over Mediocrity
+Legacy over Profit
+Permanence over Trends
+Stewardship over Ownership
+
+অর্থাৎ—
+
+Website-এর প্রতিটা জিনিসে এই values reflect করতে হবে।
+
+2. Emotional Objective
+
+সাধারণ Luxury Brand কী বিক্রি করে?
+
+Status.
+
+Aviation company কী বিক্রি করে?
+
+Convenience.
+
+Detailing company কী বিক্রি করে?
+
+Cleanliness.
+
+কিন্তু Aurelius বিক্রি করবে—
+
+Continuity
+
+মহৎ জিনিস যেন টিকে থাকে।
+
+Legacy
+
+প্রজন্মের পর প্রজন্ম excellence বজায় রাখা।
+
+Stewardship
+
+Valuable জিনিসের guardian হওয়া।
+
+Civilization
+
+Standard-এর গুরুত্ব।
+
+Permanence
+
+এটা কোনো trend না।
+এটা decades ধরে থাকবে।
+
+3. Overall Feel
+
+ক্লায়েন্ট কয়েকটা brand-এর combination চাইছে।
+
+ভাবো—
+
+Marcus Aurelius
+
+Rolls Royce
+
+Vatican
+
+Aman Resorts
+
+Louvre Museum
+
+Roman Architecture
+
+Swiss Watches
+
+Apple Park
+
+সব এক philosophy-এর মধ্যে।
+
+এটার মানে—
+
+Luxury হবে,
+
+কিন্তু flashy না।
+
+Institutional হবে।
+
+4. Website Feeling
+
+ওরা বলছে—
+
+Website যেন website না লাগে।
+
+মনে হবে—
+
+একটা Monumental Estate-এ ঢুকেছ।
+
+Meaning—
+
+সব section curated হবে।
+
+সব image cinematic হবে।
+
+সব sentence carefully written হবে।
+
+Animation architectural হবে।
+
+কোনো কিছু casual না।
+
+কোনো কিছু trendy না।
+
+5. Design Philosophy
+
+Normal Website
+
+↓
+
+Designer বানায়।
+
+Aurelius Website
+
+↓
+
+Architect বানিয়েছে এমন feel।
+
+Keywords—
+
+Carved
+Architectural
+Monumental
+Balanced
+Precise
+Restrained
+
+অর্থাৎ—
+
+Rounded colorful cards নয়।
+
+বরং
+
+Large spacing
+
+Perfect grid
+
+Strong alignment
+
+Stone architecture-এর মতো feel।
+
+6. Inspiration
+
+ওরা reference দিয়েছে—
+
+Pantheon
+
+→ Perfect proportion
+
+Roman Forum
+
+→ Institutional Power
+
+Louvre
+
+→ Cultural Preservation
+
+Aman Tokyo
+
+→ Silence + Luxury
+
+Rolls Royce House
+
+→ Craftsmanship
+
+Apple Park
+
+→ Geometry + Precision
+
+7. Aesthetic
+
+একটা শব্দ ব্যবহার করেছে—
+
+Monumental Quiet Luxury
+
+মানে—
+
+না flashy luxury
+
+না Instagram luxury
+
+না billionaire luxury
+
+বরং
+
+Museum
+
+Library
+
+Cathedral
+
+Royal Archive
+
+Embassy
+
+এই ধরনের luxury।
+
+8. Color Palette
+
+Primary
+
+Imperial Black
+Marble White
+Brushed Platinum
+
+Secondary
+
+Travertine Stone
+Roman Limestone
+Warm Ivory
+
+Accent
+
+Weathered Silver
+Architectural Chrome
+
+Meaning—
+
+Bright Blue
+
+Orange
+
+Purple
+
+Gradient
+
+নেই।
+
+সব color stone আর metal-এর মতো।
+
+9. Lighting
+
+Photo তুলতে হবে—
+
+Golden Hour
+
+Sunrise
+
+Sunset
+
+Warm Light
+
+Long Shadows
+
+Never—
+
+Midday Sun
+
+Flat Commercial Lighting
+
+10. Typography
+
+Headline যেন advertisement না হয়।
+
+বরং—
+
+Marble-এ খোদাই করা inscription-এর মতো।
+
+Meaning—
+
+Large
+
+Calm
+
+Confident
+
+Wide spacing
+
+No marketing tone
+
+No urgency.
+
+11. Photography
+
+Aircraft-কে machine হিসেবে দেখানো যাবে না।
+
+দেখাতে হবে—
+
+Monument
+
+Architecture
+
+Sculpture
+
+Powerful
+
+Silent
+
+Permanent
+
+User excitement না।
+
+User-এর মনে Awe (মুগ্ধতা) তৈরি করতে হবে।
+
+12. Homepage Structure
+
+এটা খুব interesting।
+
+Landing করলে
+
+Navigation থাকবে না।
+
+শুধু—
+
+Large Image
+
+Space
+
+Silence
+
+Presence
+
+User যেন scroll না করে।
+
+কয়েক second থেমে যায়।
+
+13. Content Order
+
+Normal Website
+
+Hero
+
+↓
+
+Services
+
+↓
+
+Pricing
+
+↓
+
+Contact
+
+কিন্তু Aurelius হবে—
+
+Hero
+
+↓
+
+Philosophy
+
+↓
+
+Legacy
+
+↓
+
+Methodology
+
+↓
+
+Capabilities
+
+↓
+
+Services
+
+কারণ—
+
+আগে বিশ্বাস (Beliefs),
+
+পরে Service।
+
+14. Language
+
+Never say
+
+"We clean aircraft."
+
+Instead
+
+"We preserve aviation assets."
+
+Never say
+
+"We detail jets."
+
+Instead
+
+"We uphold presentation standards."
+
+Never say
+
+"We provide services."
+
+Instead
+
+"We assume stewardship responsibilities."
+
+অর্থাৎ—
+
+সব copy institutional হবে।
+
+Sales language না।
+
+15. Roman Influence
+
+ওরা বলছে—
+
+Rome-এর statue,
+
+helmet,
+
+pillar,
+
+eagle,
+
+soldier
+
+ব্যবহার করো না।
+
+User যেন বুঝতেই না পারে Rome influence আছে।
+
+কিন্তু অনুভব করে—
+
+Order
+
+Symmetry
+
+Authority
+
+Permanence
+
+Dignity
+
+16. Final Goal
+
+Homepage-এ এসে Visitor-এর মনে ধাপে ধাপে এই চিন্তা আসতে হবে—
+
+৫ সেকেন্ডে:
+
+"This company does not behave like a vendor."
+
+১০ সেকেন্ডে:
+
+"This company operates like an institution."
+
+৩০ সেকেন্ডে:
+
+"These people understand stewardship."
+
+১ মিনিটে:
+
+"My aircraft belongs here."
