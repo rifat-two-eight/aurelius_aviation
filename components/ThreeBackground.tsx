@@ -39,12 +39,12 @@ function DustParticles({ count = 1500 }) {
           attach="attributes-position"
           count={positions.length / 3}
           array={positions}
-          itemSize={3} args={[]} />
+          itemSize={3} args={[positions, 3]} />
         <bufferAttribute
           attach="attributes-scale"
           count={scales.length}
           array={scales}
-          itemSize={1} args={[]} />
+          itemSize={1} args={[scales, 1]} />
       </bufferGeometry>
       <pointsMaterial
         size={0.08}
