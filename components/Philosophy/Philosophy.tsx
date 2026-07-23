@@ -1,4 +1,6 @@
+'use client';
 
+import { motion } from 'framer-motion';
 
 export default function Philosophy() {
   const tenets = [
@@ -11,15 +13,34 @@ export default function Philosophy() {
   ];
 
   return (
-    <section className="relative border-t border-white/5 overflow-hidden">
+    <section
+      className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: "url('/sky.png')" }}
+    >
+      {/* Dark overlay to ensure text is readable over the sky background */}
+      <div className="absolute inset-0 bg-imperial-black/60 z-0"></div>
+
       <div className="relative z-20 mx-auto flex max-w-[1200px] flex-col items-center px-8 py-40">
-        <h2 className="relative mb-20 text-center font-heading text-[clamp(2rem,4vw,3rem)] font-normal tracking-[0.15em] uppercase text-marble-white after:absolute after:-bottom-6 after:left-1/2 after:h-[1px] after:w-[40px] after:-translate-x-1/2 after:bg-architectural-chrome">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="relative mb-20 text-center font-heading text-[clamp(2rem,4vw,3rem)] font-normal tracking-[0.15em] uppercase text-marble-white after:absolute after:-bottom-6 after:left-1/2 after:h-[1px] after:w-[40px] after:-translate-x-1/2 after:bg-architectural-chrome"
+        >
           Our Philosophy
-        </h2>
-        
+        </motion.h2>
+
         <div className="grid w-full grid-cols-1 gap-16 md:grid-cols-2 md:gap-x-40 md:gap-y-20">
           {tenets.map((tenet, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: idx * 0.15, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="flex flex-col items-center text-center"
+            >
               <span className="font-heading text-[clamp(1.5rem,2.5vw,2.5rem)] leading-[1.2] tracking-[0.1em] uppercase text-marble-white">
                 {tenet.primary}
               </span>
@@ -29,7 +50,7 @@ export default function Philosophy() {
               <span className="font-heading text-[clamp(1rem,1.5vw,1.5rem)] tracking-[0.05em] uppercase text-travertine-stone">
                 {tenet.secondary}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

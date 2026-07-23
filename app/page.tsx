@@ -1,24 +1,19 @@
-
 import Hero from '@/components/Hero/Hero';
-import SequenceBackground from '@/components/SequenceBackground';
-import Methodology from '../components/Methodology';
 import Philosophy from '@/components/Philosophy/Philosophy';
-import Legacy from '@/components/Legacy/Legacy';
-import Capabilities from '@/components/Capabilities/Capabilities';
-import Services from '@/components/Services/Services';
+import AppearanceManagement from '@/components/AppearanceManagement/AppearanceManagement';
+import SpecializedServices from '@/components/SpecializedServices/SpecializedServices';
+import Institution from '@/components/Institution/Institution';
+import Footer from '@/components/Footer/Footer';
 
 export default function Home() {
   return (
     <div className="app-container bg-imperial-black">
       <Hero />
-      <SequenceBackground />
-      <div className="relative z-10 w-full">
-        <Philosophy />
-        <Legacy />
-        <Methodology />
-        <Capabilities />
-        <Services />
-      </div>
+      <Philosophy />
+      <AppearanceManagement />
+      <SpecializedServices />
+      <Institution />
+      <Footer />
     </div>
   );
 }
