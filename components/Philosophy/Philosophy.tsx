@@ -1,8 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Philosophy() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
+
   const tenets = [
     { primary: "Order", secondary: "Chaos" },
     { primary: "Discipline", secondary: "Indulgence" },
@@ -13,12 +24,13 @@ export default function Philosophy() {
   ];
 
   return (
-    <section
-      className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
-      style={{ backgroundImage: "url('/greece.jpg')" }}
-    >
+    <section ref={containerRef} className="relative min-h-screen overflow-hidden">
+      <motion.div
+        className="absolute inset-0 z-0 bg-cover bg-center origin-center"
+        style={{ backgroundImage: "url('/greece.jpg')", y: bgY, scale: bgScale }}
+      />
       {/* Dark overlay to ensure text is readable over the sky background */}
-      <div className="absolute inset-0 bg-imperial-black/60 z-0"></div>
+      <div className="absolute inset-0 bg-imperial-black/60 z-0 pointer-events-none"></div>
 
       <div className="relative z-20 mx-auto flex max-w-[1200px] flex-col items-center px-8 py-40">
         <motion.h2
