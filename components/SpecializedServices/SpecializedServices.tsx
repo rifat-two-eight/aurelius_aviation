@@ -24,13 +24,13 @@ const SERVICES = [
 
 export default function SpecializedServices() {
   const containerRef = useRef<HTMLElement>(null);
-  
+
   // Track scroll for a subtle parallax effect on the background
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
-  
+
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   // Zoom in smoothly alongside the scroll
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
@@ -38,13 +38,13 @@ export default function SpecializedServices() {
   return (
     <section ref={containerRef} className="relative min-h-[150vh] bg-imperial-black overflow-hidden py-32">
       {/* Subtle textured background */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0 bg-cover bg-center origin-center"
-        style={{ backgroundImage: "url('/sunset.jpg')", y: bgY, scale: bgScale }}
+        style={{ backgroundImage: "url('/roman.jpg')", y: bgY, scale: bgScale }}
       />
       <div className="absolute inset-0 bg-imperial-black/60 z-0 pointer-events-none"></div>
       <div className="relative z-10 mx-auto max-w-[1200px] px-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -59,7 +59,7 @@ export default function SpecializedServices() {
 
         <div className="flex flex-col gap-32">
           {SERVICES.map((service, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}

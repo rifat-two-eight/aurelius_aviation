@@ -26,7 +26,7 @@ const CARDS = [
 
 export default function AppearanceManagement() {
   const sectionRef = useRef<HTMLElement>(null);
-  
+
   // Track scroll progress within the 400vh container
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -41,10 +41,10 @@ export default function AppearanceManagement() {
     <section ref={sectionRef} className="relative h-[400vh] bg-imperial-black">
       {/* Sticky container that stays in view while scrolling horizontally */}
       <div className="sticky top-0 left-0 h-screen w-full overflow-hidden flex flex-col justify-center">
-        
+
         {/* Title overlay that stays in place or fades out slightly */}
         <div className="absolute top-16 left-8 md:left-16 z-20 mix-blend-difference pointer-events-none">
-          <motion.h2 
+          <motion.h2
             className="font-heading text-[clamp(1.5rem,3vw,2.5rem)] font-normal tracking-[0.15em] uppercase text-marble-white"
             style={{ opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0.2]) }}
           >
@@ -54,22 +54,22 @@ export default function AppearanceManagement() {
         </div>
 
         {/* The horizontal sliding track */}
-        <motion.div 
+        <motion.div
           className="flex h-[75vh] w-[300vw]"
           style={{ x: xTranslate }}
         >
           {CARDS.map((card, index) => (
-            <div 
-              key={card.id} 
+            <div
+              key={card.id}
               className="relative flex h-full w-screen items-center justify-center px-8 md:px-16"
             >
               <div className="relative h-full w-full max-w-[1400px] overflow-hidden group">
                 {/* Background Image */}
-                <div 
+                <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[20s] ease-out group-hover:scale-105"
                   style={{ backgroundImage: `url(${card.bgImage})` }}
                 ></div>
-                
+
                 {/* Overlay for darkness */}
                 <div className="absolute inset-0 bg-imperial-black/60 bg-gradient-to-t from-imperial-black/90 to-transparent"></div>
 
@@ -94,7 +94,7 @@ export default function AppearanceManagement() {
         <div className="absolute bottom-8 left-8 md:left-16 z-20 flex items-center gap-4">
           <span className="font-body text-xs tracking-[0.3em] text-architectural-chrome uppercase">Explore</span>
           <div className="h-[1px] w-[150px] bg-white/10 relative overflow-hidden">
-            <motion.div 
+            <motion.div
               className="absolute top-0 left-0 h-full bg-marble-white origin-left"
               style={{ scaleX: scrollYProgress, width: '100%' }}
             ></motion.div>

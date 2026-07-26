@@ -15,7 +15,7 @@ export default function Philosophy() {
   return (
     <section
       className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
-      style={{ backgroundImage: "url('/sky.png')" }}
+      style={{ backgroundImage: "url('/greece.jpg')" }}
     >
       {/* Dark overlay to ensure text is readable over the sky background */}
       <div className="absolute inset-0 bg-imperial-black/60 z-0"></div>
