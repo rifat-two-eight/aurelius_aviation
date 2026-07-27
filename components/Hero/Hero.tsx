@@ -48,7 +48,7 @@ export default function Hero() {
         >
           <div
             className="h-full w-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/window.png')" }}
+            style={{ backgroundImage: "url('/statue.jpg')" }}
           />
         </motion.div>
 
