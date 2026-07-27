@@ -59,31 +59,49 @@ export default function Hero() {
         />
 
         {/* Content (remains visible) */}
-        <div className="relative z-30 mt-[5vh] flex flex-col items-center gap-10 px-8 text-center">
-          <div
+        <div className="relative z-30 mt-[5vh] flex flex-col items-center gap-8 px-8 text-center">
+          {/* <div
             className="animate-slow-fade-in font-body text-[clamp(0.75rem,1.2vw,0.9rem)] font-light tracking-[0.5em] uppercase text-architectural-chrome opacity-0"
             style={{ animationDelay: '1.5s' }}
           >
             Est. MMXXIV
-          </div>
+          </div> */}
 
           <h1
-            className="animate-slow-fade-in font-heading text-[clamp(3.5rem,8vw,8rem)] font-normal leading-[1.05] tracking-[0.12em] uppercase text-marble-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] opacity-0"
+            className="animate-slow-fade-in font-heading text-7xl font-medium uppercase text-marble-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] opacity-0"
             style={{ animationDelay: '0.5s' }}
           >
-            Aurelius
+            Aviation Above Ordinary
           </h1>
 
           <div
-            className="animate-slow-fade-in max-w-[600px] font-heading text-[clamp(1rem,2vw,1.5rem)] font-normal tracking-[0.05em] text-travertine-stone opacity-0"
-            style={{ animationDelay: '2.5s' }}
+            className="animate-slow-fade-in max-w-[620px] font-heading text-[clamp(0.95rem,1.4vw,1.2rem)] font-normal tracking-[0.04em] leading-[1.8] text-travertine-stone opacity-0"
+            style={{ animationDelay: '2s' }}
           >
-            We preserve aviation assets.
+            Aurelius provides aircraft appearance management for premium aviation clients — combining presentation, preservation, process and documentation into a relationship that extends well beyond a single service engagement.
+          </div>
+
+          <div
+            className="animate-slow-fade-in flex flex-col sm:flex-row items-center gap-4 mt-4 opacity-0"
+            style={{ animationDelay: '2.8s' }}
+          >
+            <a
+              href="/assessment"
+              className="px-8 py-3.5 border border-marble-white bg-marble-white text-imperial-black text-xs tracking-[0.3em] uppercase font-body font-medium hover:bg-transparent hover:text-marble-white transition-all duration-500"
+            >
+              Request an Assessment
+            </a>
+            <a
+              href="/services"
+              className="px-8 py-3.5 border border-white/30 bg-transparent text-marble-white text-xs tracking-[0.3em] uppercase font-body hover:border-white/70 hover:bg-white/5 transition-all duration-500"
+            >
+              Explore Our Services
+            </a>
           </div>
         </div>
 
-        {/* Scroll Indicator (remains visible) */}
-        <div
+        {/* Scroll Indicator */}
+        {/* <div
           className="absolute bottom-16 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-6 animate-slow-reveal opacity-0"
           style={{ animationDelay: '4s' }}
         >
@@ -91,7 +109,7 @@ export default function Hero() {
             Discover Legacy
           </span>
           <div className="h-[80px] w-[1px] bg-gradient-to-b from-architectural-chrome to-transparent"></div>
-        </div>
+        </div> */}
 
       </div>
     </main>
