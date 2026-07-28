@@ -30,16 +30,16 @@ export default function Hero() {
       <div className="sticky top-0 left-0 flex h-screen w-full items-center justify-center overflow-hidden">
 
         {/* Initial Hero Background */}
-        <motion.div
+        {/* <motion.div
           className="absolute left-0 top-0 z-0 h-full w-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/hero.jpg')", scale: skyScale }}
-        />
+        /> */}
 
         {/* Sky Background (fades in over the hero background after scroll starts) */}
-        <motion.div
+        {/* <motion.div
           className="absolute left-0 top-0 z-0 h-full w-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/sky.png')", scale: skyScale, opacity: skyOpacity }}
-        />
+        /> */}
 
         {/* Window Overlay scaling up and fading out */}
         <motion.div
@@ -48,7 +48,7 @@ export default function Hero() {
         >
           <div
             className="h-full w-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/statue.jpg')" }}
+            style={{ backgroundImage: "url('/aurelius.png')" }}
           />
         </motion.div>
 
