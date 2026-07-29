@@ -1,14 +1,25 @@
- Hero
-Headline: Aviation Above Ordinary
-Supporting paragraph: 25–55 words, communicating (a) Aurelius provides aircraft
-appearance management, (b) it serves premium aviation clients, (c) it combines
-presentation, preservation, process and documentation, (d) the relationship extends
-beyond one-time service.
-CTAs: Primary — Request an Assessment. Secondary — Explore Our Services.
-Optional microcopy line: service region or operating model, once confirmed. No
-geographic claim ships before confirmation.
-Hero media — use: a premium business aircraft in a controlled hangar, ramp or executive
-terminal setting; cinematic but restrained. Hero media — avoid: commercial airliners,
-crowded terminals, generic aviation montages, staff posing, visible third-party branding
-without permission, readable registrations, unsafe ramp behaviour, technicians shown
-performing questionable procedures.
+ The Aurelius Standard preview
+Heading: A Standard Built on Process Seven stages, one line each: Understand · Assess ·
+Plan · Execute · Verify · Report · Maintain. Link to the full page.
+10.7 Client types
+Six blocks — Private Owners, Corporate Flight Departments, Aircraft Management
+Companies, Charter Operators, Brokers and Dealers, Aviation Facilities and Partners. Each
+answers: the standard they are responsible for; the problem they face; how Aurelius
+supports them; which services are most relevant. Source content from §3.
+10.8 Why Aurelius
+Eight differentiators, each with a real explanation — never an icon grid of one-line claims.
+Management-level structure · Defined scope · Condition awareness · Material-conscious
+methods · Quality verification · Professional reporting · Discretion · Continuity.
+10.9 What working with Aurelius looks like
+Make the model tangible: initial consultation → baseline assessment → recommended scope
+→ corrective phase → recurring schedule → service records → periodic programme review.
+10.10 Projects preview
+At launch, label this section Methodology or Capability and show the process — not
+fictional case studies. Convert to real projects in Phase 3 (§16).
+10.11 Insights preview
+Three to six articles. See §17 for topics and editorial rules.
+10.12 Final call to action
+Heading: Define a Higher Standard for Your Aircraft Concise invitation, primary CTA, and —
+only when confirmed — phone, email, service region, response expectations.
+Prohibited: countdown timers, “book before spaces fill”, discounts, pop-up coupons, exit
+intent overlays, any urgency tactic

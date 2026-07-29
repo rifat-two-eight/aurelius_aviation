@@ -43,7 +43,7 @@ export default function Hero() {
 
         {/* Window Overlay scaling up and fading out */}
         <motion.div
-          className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center pointer-events-none origin-center"
+          className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center pointer-events-none origin-top"
           style={{ scale: windowScale, opacity: windowOpacity }}
         >
           <div
@@ -78,7 +78,7 @@ export default function Hero() {
             className="animate-slow-fade-in max-w-[620px] font-heading text-[clamp(0.95rem,1.4vw,1.2rem)] font-normal tracking-[0.04em] leading-[1.8] text-travertine-stone opacity-0"
             style={{ animationDelay: '2s' }}
           >
-            Aurelius provides aircraft appearance management for premium aviation clients — combining presentation, preservation, process and documentation into a relationship that extends well beyond a single service engagement.
+            Delivering comprehensive aviation asset management solutions for airlines, investors, and aviation stakeholders worldwide.
           </div>
 
           <div

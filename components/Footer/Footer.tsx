@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer className="bg-imperial-black pt-32 pb-16 border-t border-white/10 relative overflow-hidden">
+    <footer className="bg-imperial-black pt-24 md:pt-32 pb-16 border-t border-white/10 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
         {/* Request Assessment CTA */}
@@ -16,21 +16,24 @@ export default function Footer() {
           className="flex flex-col items-center text-center mb-40"
         >
           <span className="font-body text-xs tracking-[0.4em] uppercase text-architectural-chrome mb-6">
-            Initiate Contact
+            Begin the Conversation
           </span>
-          <h2 className="font-heading text-[clamp(2.5rem,5vw,4.5rem)] font-normal tracking-[0.1em] uppercase text-marble-white mb-10">
-            Request an Assessment
+          <h2 className="font-heading text-[clamp(2.2rem,5vw,4.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-10 max-w-[800px]">
+            Define a Higher Standard for Your Aircraft
           </h2>
-          <p className="font-heading text-[clamp(1rem,1.2vw,1.25rem)] font-normal tracking-[0.05em] leading-[1.8] text-travertine-stone max-w-[600px] mb-16">
-            For ownership and operations that demand uncompromising permanence. Let us evaluate your asset and outline a protocol of monumental care.
+          <p className="font-heading text-[clamp(1rem,1.2vw,1.2rem)] font-normal tracking-[0.04em] leading-[1.85] text-travertine-stone max-w-[560px] mb-16">
+            We begin with a conversation. Tell us about your aircraft, your operations and what you are trying to maintain. We will outline what is possible.
           </p>
 
-          <button className="group relative overflow-hidden border border-white/20 bg-transparent px-12 py-5 transition-colors duration-500 hover:border-marble-white">
-            <span className="relative z-10 font-body text-xs tracking-[0.3em] uppercase text-marble-white transition-colors duration-500">
-              Assume Stewardship
+          <a
+            href="/contact"
+            className="group relative overflow-hidden border border-white/20 bg-transparent px-12 py-5 transition-all duration-500 hover:border-marble-white"
+          >
+            <span className="relative z-10 font-body text-xs tracking-[0.3em] uppercase text-marble-white">
+              Request an Assessment
             </span>
-            <div className="absolute inset-0 z-0 h-full w-full -translate-x-full bg-white/5 transition-transform duration-500 group-hover:translate-x-0"></div>
-          </button>
+            <div className="absolute inset-0 z-0 h-full w-full -translate-x-full bg-white/5 transition-transform duration-500 group-hover:translate-x-0" />
+          </a>
         </motion.div>
 
         {/* Footer Links & Contact */}

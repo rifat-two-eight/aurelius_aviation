@@ -26,7 +26,7 @@ export default function Philosophy() {
   return (
     <section ref={containerRef} className="relative min-h-screen overflow-hidden">
       <motion.div
-        className="absolute inset-0 z-0 bg-cover bg-center origin-center"
+        className="absolute inset-0 opacity-60 z-0 bg-cover bg-center origin-center"
         style={{ backgroundImage: "url('/greece.jpg')", y: bgY, scale: bgScale }}
       />
       {/* Dark overlay to ensure text is readable over the sky background */}
