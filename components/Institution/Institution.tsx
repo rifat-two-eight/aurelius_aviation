@@ -7,42 +7,42 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const DIFFERENTIATORS = [
   {
-    number: '01',
+    number: 'I',
     title: 'Management-Level Structure',
     description: 'Every engagement is managed as a programme, not a single transaction. Scope is defined before work begins, progress is tracked and outcomes are confirmed against agreed criteria.',
   },
   {
-    number: '02',
+    number: 'II',
     title: 'Defined Scope',
     description: 'We do not begin work without a documented scope. This protects the aircraft, sets accurate expectations and ensures that what is completed is precisely what was agreed.',
   },
   {
-    number: '03',
+    number: 'III',
     title: 'Condition Awareness',
     description: 'We assess before we recommend. Scope is based on the actual condition of the aircraft, not a fixed menu — which means resources are directed where they create genuine value.',
   },
   {
-    number: '04',
+    number: 'IV',
     title: 'Material-Conscious Methods',
     description: 'Aviation surfaces are specific and sensitive. Our methods and product selections are chosen for compatibility with aircraft materials — not transferred from automotive or generic detailing.',
   },
   {
-    number: '05',
+    number: 'V',
     title: 'Quality Verification',
     description: 'Work is inspected against defined criteria before it is considered complete. Standards are not assumed — they are confirmed at each stage and documented.',
   },
   {
-    number: '06',
+    number: 'VI',
     title: 'Professional Reporting',
     description: 'Every service produces a written record: condition at intake, scope completed, observations made, recommendations issued. Owners and operators receive documentation they can act on.',
   },
   {
-    number: '07',
+    number: 'VII',
     title: 'Discretion',
     description: 'We operate within the environments of our clients without drawing attention to ourselves or their affairs. Confidentiality is a baseline expectation, not an option.',
   },
   {
-    number: '08',
+    number: 'VIII',
     title: 'Continuity',
     description: 'Our objective is a standard held over time, not a single result. Recurring programmes, consistent teams and documented history mean each service builds on the one before it.',
   },
@@ -51,13 +51,13 @@ const DIFFERENTIATORS = [
 // ─── 10.9 What Working With Aurelius Looks Like ──────────────────────────────
 
 const PROCESS_STEPS = [
-  { step: '01', title: 'Initial Consultation', description: 'We discuss the aircraft, its operational context, your standards and your objectives. No assumption is made before this conversation takes place.' },
-  { step: '02', title: 'Baseline Assessment', description: 'We conduct a structured condition review — exterior surfaces, cabin materials, high-contact areas — producing a documented record of the current state.' },
-  { step: '03', title: 'Recommended Scope', description: 'Based on assessment findings, we present a recommended scope: what should be addressed, in what sequence, and why.' },
-  { step: '04', title: 'Corrective Phase', description: 'Where existing condition requires correction, we complete this work first — removing accumulated issues before a recurring programme begins.' },
-  { step: '05', title: 'Recurring Schedule', description: 'A scheduled programme is established around the aircraft\'s operational calendar. Services are planned, not reactive.' },
-  { step: '06', title: 'Service Records', description: 'Each service is documented — scope completed, condition observations, photographs, and recommendations for the next visit.' },
-  { step: '07', title: 'Programme Review', description: 'Periodically, we review the programme against the aircraft\'s current condition and operational changes, adjusting scope where needed.' },
+  { step: 'I', title: 'Initial Consultation', description: 'We discuss the aircraft, its operational context, your standards and your objectives. No assumption is made before this conversation takes place.' },
+  { step: 'II', title: 'Baseline Assessment', description: 'We conduct a structured condition review — exterior surfaces, cabin materials, high-contact areas — producing a documented record of the current state.' },
+  { step: 'III', title: 'Recommended Scope', description: 'Based on assessment findings, we present a recommended scope: what should be addressed, in what sequence, and why.' },
+  { step: 'IV', title: 'Corrective Phase', description: 'Where existing condition requires correction, we complete this work first — removing accumulated issues before a recurring programme begins.' },
+  { step: 'V', title: 'Recurring Schedule', description: 'A scheduled programme is established around the aircraft\'s operational calendar. Services are planned, not reactive.' },
+  { step: 'VI', title: 'Service Records', description: 'Each service is documented — scope completed, condition observations, photographs, and recommendations for the next visit.' },
+  { step: 'VII', title: 'Programme Review', description: 'Periodically, we review the programme against the aircraft\'s current condition and operational changes, adjusting scope where needed.' },
 ];
 
 export default function Institution() {
@@ -101,7 +101,7 @@ export default function Institution() {
                 viewport={{ once: true, margin: '-60px' }}
                 className="bg-imperial-black px-8 py-10 md:px-12 flex gap-8 hover:bg-white/[0.025] transition-colors duration-500 group"
               >
-                <span className="font-body text-[2rem] font-light tracking-widest text-white/8 leading-none shrink-0 mt-1">
+                <span className="font-body text-[2rem] font-light tracking-widest text-white/30 leading-none shrink-0 mt-1">
                   {item.number}
                 </span>
                 <div>
