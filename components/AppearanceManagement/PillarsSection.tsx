@@ -132,7 +132,7 @@ export default function PillarsSection() {
   const headingOpacity = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative py-24 md:py-32 overflow-hidden border-b border-white/5]">
+    <div ref={containerRef} className="relative py-24 md:py-32 overflow-hidden border-b border-white/10">
 
       {/* Background Image with Parallax */}
       <motion.div
