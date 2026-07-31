@@ -126,7 +126,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full z-50 py-4 transition-all duration-[1200ms] flex justify-center pointer-events-none overflow-hidden"
+        className="fixed top-0 left-0 w-full z-50 py-4 transition-all duration-[1200ms] flex justify-center pointer-events-none"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
