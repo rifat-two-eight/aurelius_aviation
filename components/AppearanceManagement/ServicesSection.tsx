@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const SERVICES = [
@@ -115,7 +116,7 @@ export default function ServicesSection() {
         {/* Horizontal sliding track */}
         <motion.div
           className="flex flex-row w-max gap-32 px-6 md:px-12"
-          style={{ x: xTranslate }}
+          style={{ x: xTranslate, willChange: "transform" }}
         >
           {SERVICES.map((service) => (
             <div
@@ -126,10 +127,15 @@ export default function ServicesSection() {
 
                 {/* Left: Image */}
                 <div className="relative w-full md:w-1/2 h-44 md:h-full overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${service.image})` }}
-                  />
+                  <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 85vw, (max-width: 1024px) 70vw, 50vw"
+                      className="object-cover object-center"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-imperial-black/40" />
                   <span className="absolute top-6 left-6 font-body text-[clamp(2.5rem,5vw,4.5rem)] font-light tracking-widest text-white/40 leading-none">
                     {service.id}

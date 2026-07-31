@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const PILLARS = [
@@ -135,9 +136,17 @@ export default function PillarsSection() {
 
       {/* Background Image with Parallax */}
       <motion.div
-        className="absolute inset-0 z-0 bg-cover bg-center origin-center opacity-100"
-        style={{ backgroundImage: "url('/offer2.jpg')", y: bgY, scale: bgScale }}
-      />
+        className="absolute inset-0 z-0 origin-center opacity-100"
+        style={{ y: bgY, scale: bgScale, willChange: "transform" }}
+      >
+        <Image
+          src="/offer2.jpg"
+          alt="Appearance Management"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
       {/* Dark overlay for contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-imperial-black/95 via-imperial-black/75 to-imperial-black z-0 pointer-events-none" />
 

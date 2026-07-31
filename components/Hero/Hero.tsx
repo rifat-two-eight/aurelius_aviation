@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Hero() {
@@ -44,12 +45,18 @@ export default function Hero() {
         {/* Window Overlay scaling up and fading out */}
         <motion.div
           className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center pointer-events-none origin-top"
-          style={{ scale: windowScale, opacity: windowOpacity }}
+          style={{ scale: windowScale, opacity: windowOpacity, willChange: "transform, opacity" }}
         >
-          <div
-            className="h-full w-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/aurelius.png')" }}
-          />
+          <div className="relative h-full w-full">
+            <Image
+              src="/aurelius.png"
+              alt="Aurelius Aviation"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </div>
         </motion.div>
 
         {/* Gradient Overlay (fades out so sky becomes clear) */}

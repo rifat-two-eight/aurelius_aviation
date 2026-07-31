@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -104,19 +105,20 @@ function NavItem({ link }: { link: typeof NAV_LINKS[number] }) {
 }
 
 export default function Header() {
-  const [scrollY, setScrollY] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileOpenIdx, setMobileOpenIdx] = useState<number | null>(null);
+  const [isHeroPast, setIsHeroPast] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Determine if we scrolled past the hero section
-  const isHeroPast = scrollY > (typeof window !== 'undefined' ? window.innerHeight * 0.8 : 600);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const threshold = typeof window !== 'undefined' ? window.innerHeight * 0.8 : 600;
+    if (latest > threshold && !isHeroPast) {
+      setIsHeroPast(true);
+    } else if (latest <= threshold && isHeroPast) {
+      setIsHeroPast(false);
+    }
+  });
 
   // Collapse when past hero AND not hovered
   const isCollapsed = isHeroPast && !isHovered;

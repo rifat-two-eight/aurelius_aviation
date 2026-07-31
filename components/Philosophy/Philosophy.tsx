@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Philosophy() {
@@ -26,9 +27,17 @@ export default function Philosophy() {
   return (
     <section ref={containerRef} className="relative min-h-screen overflow-hidden">
       <motion.div
-        className="absolute inset-0 opacity-60 z-0 bg-cover bg-center origin-center"
-        style={{ backgroundImage: "url('/greece.jpg')", y: bgY, scale: bgScale }}
-      />
+        className="absolute inset-0 opacity-60 z-0 origin-center"
+        style={{ y: bgY, scale: bgScale, willChange: "transform" }}
+      >
+        <Image
+          src="/greece.jpg"
+          alt="Philosophy Background"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
       {/* Dark overlay to ensure text is readable over the sky background */}
       <div className="absolute inset-0 bg-imperial-black/60 z-0 pointer-events-none"></div>
 

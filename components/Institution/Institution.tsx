@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 // ─── 10.8 Why Aurelius ───────────────────────────────────────────────────────
@@ -121,9 +122,17 @@ export default function Institution() {
       {/* ── 10.9 What Working With Aurelius Looks Like ────────────────────── */}
       <section ref={containerRef} className="relative py-24 md:py-32 border-t border-white/5 overflow-hidden">
         <motion.div
-          className="absolute inset-0 z-0 bg-cover bg-center opacity-20 mix-blend-luminosity"
-          style={{ backgroundImage: "url('/wings.jpg')", y: bgY, scale: bgScale }}
-        />
+          className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity"
+          style={{ y: bgY, scale: bgScale, willChange: "transform" }}
+        >
+          <Image
+            src="/wings.jpg"
+            alt="Wings"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-imperial-black via-imperial-black/80 to-imperial-black z-0" />
 
         <div className="relative z-10 container mx-auto px-6 md:px-12">
