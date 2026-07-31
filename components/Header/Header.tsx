@@ -47,7 +47,7 @@ const NAV_LINKS = [
     href: "/contact",
     sub: [
       { name: "Get in Touch", href: "/contact" },
-      { name: "Request an Assessment", href: "/assessment" },
+      { name: "Experience Our Stewardship", href: "/assessment" },
     ],
   },
 ];
@@ -126,14 +126,14 @@ export default function Header() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full z-50 py-4 transition-all duration-[1200ms] flex justify-center pointer-events-none"
+        className="fixed top-0 left-0 w-full z-50 py-4 transition-all duration-[1200ms] flex justify-center pointer-events-none overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div
           className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.2,1)] flex items-center border pointer-events-auto ${isCollapsed
-            ? "w-[80px] h-[80px] rounded-xl justify-center bg-white/5 hover:bg-white/10 border-white/10 shadow-2xl overflow-hidden"
-            : "w-[calc(100vw-1.5rem)] md:w-[calc(100vw-3rem)] max-w-[1400px] h-[72px] rounded-xl justify-between px-6 md:px-8 bg-imperial-black/30 backdrop-blur-xl border-white/5 shadow-lg"
+            ? "w-[80px] h-[80px] rounded-xl justify-center bg-white/5 hover:bg-white/10 border-white/10 shadow-2xl overflow-hidden translate-x-[calc(50vw-64px)] md:translate-x-[calc(50vw-88px)]"
+            : "w-[calc(100vw-1.5rem)] md:w-[calc(100vw-3rem)] h-[72px] rounded-xl justify-between px-6 md:px-8 bg-imperial-black/30 backdrop-blur-xl border-white/5 shadow-lg translate-x-0"
             }`}
         >
           {/* Logo container */}
@@ -175,7 +175,7 @@ export default function Header() {
               href="/assessment"
               className="px-6 py-2.5 border border-white/20 hover:border-white/60 text-xs tracking-widest uppercase text-marble-white transition-all hover:bg-white/5 whitespace-nowrap"
             >
-              Request an Assessment
+              Experience Our Stewardship
             </Link>
           </div>
 
@@ -232,7 +232,7 @@ export default function Header() {
             className="mt-8 px-8 py-3 w-full max-w-sm text-center border border-white/30 text-sm tracking-widest uppercase text-marble-white bg-white/5"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Request an Assessment
+            Experience Our Stewardship
           </Link>
         </div>
       </div>

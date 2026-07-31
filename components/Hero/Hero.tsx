@@ -96,7 +96,7 @@ export default function Hero() {
               href="/assessment"
               className="px-8 py-3.5 border border-marble-white bg-marble-white text-imperial-black text-xs tracking-[0.3em] uppercase font-body font-medium hover:bg-transparent hover:text-marble-white transition-all duration-500"
             >
-              Request an Assessment
+              Experience Our Stewardship
             </a>
             <a
               href="/services"
