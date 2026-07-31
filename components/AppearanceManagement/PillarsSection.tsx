@@ -184,7 +184,7 @@ export default function PillarsSection() {
           </motion.div>
         </div>
 
-        {/* ── Four Pillars ──────────────────────────────────────────── */}
+        {/* ── What Aurelius Manages ──────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -192,11 +192,8 @@ export default function PillarsSection() {
           viewport={{ once: true, margin: '-80px' }}
           className="mb-8"
         >
-          <p className="font-body text-[0.72rem] tracking-[0.45em] uppercase text-architectural-chrome mb-4">
-            What Aurelius Manages
-          </p>
           <h3 className="font-heading text-[clamp(1.5rem,3vw,2.5rem)] font-normal tracking-[0.1em] uppercase text-marble-white mb-2">
-            Four Pillars
+            What Aurelius Manages
           </h3>
           <div className="h-[1px] w-12 bg-architectural-chrome" />
         </motion.div>

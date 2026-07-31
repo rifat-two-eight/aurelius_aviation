@@ -83,11 +83,8 @@ export default function Institution() {
             viewport={{ once: true, margin: '-80px' }}
             className="mb-20"
           >
-            <p className="font-body text-[0.72rem] tracking-[0.45em] uppercase text-architectural-chrome mb-4">
-              Why Aurelius
-            </p>
             <h2 className="font-heading text-[clamp(2rem,4vw,3.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-4">
-              Eight Differentiators
+              Why Aurelius
             </h2>
             <div className="h-[1px] w-12 bg-architectural-chrome" />
           </motion.div>
@@ -144,11 +141,8 @@ export default function Institution() {
             viewport={{ once: true, margin: '-80px' }}
             className="mb-20"
           >
-            <p className="font-body text-[0.72rem] tracking-[0.45em] uppercase text-architectural-chrome mb-4">
-              The Engagement Model
-            </p>
             <h2 className="font-heading text-[clamp(2rem,4vw,3.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-4">
-              What Working With Aurelius Looks Like
+              The Engagement Model
             </h2>
             <div className="h-[1px] w-12 bg-architectural-chrome" />
           </motion.div>

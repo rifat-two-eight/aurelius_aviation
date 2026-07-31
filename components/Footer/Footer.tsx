@@ -15,12 +15,11 @@ export default function Footer() {
           transition={{ duration: 1 }}
           className="flex flex-col items-center text-center mb-40"
         >
-          <span className="font-body text-xs tracking-[0.4em] uppercase text-architectural-chrome mb-6">
+          {/* <span className="font-body text-xs tracking-[0.4em] uppercase text-architectural-chrome mb-6">
             Begin the Conversation
-          </span>
-          <h2 className="font-heading text-[clamp(2.2rem,5vw,4.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-10 max-w-[800px]">
-            Define a Higher Standard for Your Aircraft
-          </h2>
+          </span> */}
+          <h2 className="font-heading text-[clamp(2.2rem,5vw,4.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-10 max-w-7xl">
+            Begin the Conversation</h2>
           <p className="font-heading text-[clamp(1rem,1.2vw,1.2rem)] font-normal tracking-[0.04em] leading-[1.85] text-travertine-stone max-w-[560px] mb-16">
             We begin with a conversation. Tell us about your aircraft, your operations and what you are trying to maintain. We will outline what is possible.
           </p>

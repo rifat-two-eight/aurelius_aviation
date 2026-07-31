@@ -139,11 +139,8 @@ export default function SpecializedServices() {
             viewport={{ once: true, margin: '-80px' }}
             className="mb-20"
           >
-            <p className="font-body text-[0.72rem] tracking-[0.45em] uppercase text-architectural-chrome mb-4">
-              Who We Work With
-            </p>
             <h2 className="font-heading text-[clamp(2rem,4vw,3.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-4">
-              Client Types
+              Who We Work With
             </h2>
             <div className="h-[1px] w-12 bg-architectural-chrome" />
           </motion.div>
