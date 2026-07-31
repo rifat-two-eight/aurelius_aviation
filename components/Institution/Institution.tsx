@@ -119,18 +119,18 @@ export default function Institution() {
       {/* ── 10.9 What Working With Aurelius Looks Like ────────────────────── */}
       <section ref={containerRef} className="relative py-24 md:py-32 border-t border-white/5 overflow-hidden">
         <motion.div
-          className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity"
+          className="absolute inset-0 z-0 origin-center opacity-100"
           style={{ y: bgY, scale: bgScale, willChange: "transform" }}
         >
           <Image
-            src="/wings.jpg"
+            src="/wings3.jpg"
             alt="Wings"
             fill
             sizes="100vw"
             className="object-cover object-center"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-imperial-black via-imperial-black/80 to-imperial-black z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-imperial-black/95 via-imperial-black/75 to-imperial-black z-0 pointer-events-none" />
 
         <div className="relative z-10 container mx-auto px-6 md:px-12">
 

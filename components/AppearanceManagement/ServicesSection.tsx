@@ -143,26 +143,36 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Right: Text */}
-                <div className="flex flex-col justify-between w-full md:w-1/2 p-6 md:p-8 gap-4 h-full">
-                  <div>
-                    <h4 className="font-heading text-[clamp(1.2rem,1.8vw,1.8rem)] font-normal tracking-[0.08em] uppercase text-marble-white leading-snug mb-2">
-                      {service.title}
-                    </h4>
-                    <p className="font-body text-[clamp(0.8rem,1vw,0.92rem)] tracking-[0.02em] leading-[1.7] text-travertine-stone/85">
-                      {service.description}
-                    </p>
-                  </div>
-                  <div className="border-t border-white/8 pt-4">
-                    <p className="font-body text-[0.68rem] tracking-[0.1em] uppercase text-architectural-chrome mb-3">
-                      Outcome — {service.outcome}
-                    </p>
-                    <Link
-                      href={service.href}
-                      className="inline-flex items-center gap-3 text-[0.72rem] tracking-[0.2em] uppercase text-marble-white/50 hover:text-marble-white transition-colors duration-300 group/link"
-                    >
-                      Learn More
-                      <span className="h-[1px] w-8 bg-current inline-block transition-all duration-300 group-hover/link:w-12" />
-                    </Link>
+                <div className="relative w-full md:w-1/2 h-full overflow-hidden">
+                  <Image
+                    src="/wings2.jpg"
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 85vw, (max-width: 1024px) 35vw, 25vw"
+                    className="object-cover object-center opacity-60"
+                  />
+                  <div className="absolute inset-0 bg-imperial-black/70" />
+                  <div className="relative z-10 flex flex-col justify-between p-6 md:p-8 gap-4 h-full">
+                    <div>
+                      <h4 className="font-heading text-[clamp(1.2rem,1.8vw,1.8rem)] font-normal tracking-[0.08em] uppercase text-marble-white leading-snug mb-2">
+                        {service.title}
+                      </h4>
+                      <p className="font-body text-[clamp(0.8rem,1vw,0.92rem)] tracking-[0.02em] leading-[1.7] text-travertine-stone/85">
+                        {service.description}
+                      </p>
+                    </div>
+                    <div className="border-t border-white/8 pt-4">
+                      <p className="font-body text-[0.68rem] tracking-[0.1em] uppercase text-architectural-chrome mb-3">
+                        Outcome — {service.outcome}
+                      </p>
+                      <Link
+                        href={service.href}
+                        className="inline-flex items-center gap-3 text-[0.72rem] tracking-[0.2em] uppercase text-marble-white/50 hover:text-marble-white transition-colors duration-300 group/link"
+                      >
+                        Learn More
+                        <span className="h-[1px] w-8 bg-current inline-block transition-all duration-300 group-hover/link:w-12" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
