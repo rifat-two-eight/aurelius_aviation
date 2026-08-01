@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Aurelius Aviation | Monumental Quiet Luxury",
@@ -16,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-imperial-black text-marble-white font-body overflow-x-hidden antialiased">
         <Header />
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
