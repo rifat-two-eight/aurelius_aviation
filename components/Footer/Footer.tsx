@@ -29,7 +29,7 @@ export default function Footer() {
             className="group relative overflow-hidden border border-white/20 bg-transparent px-12 py-5 transition-all duration-500 hover:border-marble-white"
           >
             <span className="relative z-10 font-body text-xs tracking-[0.3em] uppercase text-marble-white">
-              Experience Our Stewardship
+              Claim Stewardship Today
             </span>
             <div className="absolute inset-0 z-0 h-full w-full -translate-x-full bg-white/5 transition-transform duration-500 group-hover:translate-x-0" />
           </a>

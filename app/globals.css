@@ -67,3 +67,34 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
+@keyframes cycleSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cycleSpinReverse {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.cycle-spin {
+  animation: cycleSpin 80s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.cycle-counter {
+  animation: cycleSpinReverse 80s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}

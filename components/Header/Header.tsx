@@ -13,7 +13,9 @@ const NAV_LINKS = [
     sub: [
       { name: "Our Story", href: "/about/story" },
       { name: "Our Team", href: "/about/team" },
-      { name: "The Aurelius Standard", href: "/standard" },
+      { name: "The Aurelius Standard", href: "/about/standard" },
+      { name: "Why Aurelius", href: "/about/why" },
+      { name: "Discretion & Insurance", href: "/about/discretion" },
     ],
   },
   {
@@ -26,28 +28,28 @@ const NAV_LINKS = [
     ],
   },
   {
-    name: "Industries",
-    href: "/industries",
+    name: "Who We Serve",
+    href: "/who",
     sub: [
-      { name: "Commercial Aviation", href: "/industries/commercial" },
-      { name: "Private & Charter", href: "/industries/private" },
-      { name: "Cargo & Freight", href: "/industries/cargo" },
+      { name: "Commercial Aviation", href: "/who-we-serve/commercial" },
+      { name: "Private & Charter", href: "/who-we-serve/private" },
+      { name: "Cargo & Freight", href: "/who-we-serve/cargo" },
     ],
   },
   {
-    name: "Insights",
-    href: "/insights",
+    name: "Process",
+    href: "/process",
     sub: [
-      { name: "Articles", href: "/insights/articles" },
-      { name: "Case Studies", href: "/insights/case-studies" },
+      { name: "Articles", href: "/process/articles" },
+      { name: "Case Studies", href: "/process/case-studies" },
     ],
   },
   {
     name: "Contact",
     href: "/contact",
     sub: [
-      { name: "Get in Touch", href: "/contact" },
-      { name: "Experience Our Stewardship", href: "/assessment" },
+      { name: "General Enquiries", href: "/contact/general" },
+      { name: "Request an Assessment", href: "/contact/assessment" },
     ],
   },
 ];
@@ -175,7 +177,7 @@ export default function Header() {
               href="/assessment"
               className="px-6 py-2.5 border border-white/20 hover:border-white/60 text-xs tracking-widest uppercase text-marble-white transition-all hover:bg-white/5 whitespace-nowrap"
             >
-              Experience Our Stewardship
+              Claim Stewardship Today
             </Link>
           </div>
 
@@ -232,7 +234,7 @@ export default function Header() {
             className="mt-8 px-8 py-3 w-full max-w-sm text-center border border-white/30 text-sm tracking-widest uppercase text-marble-white bg-white/5"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Experience Our Stewardship
+            Claim Stewardship Today
           </Link>
         </div>
       </div>

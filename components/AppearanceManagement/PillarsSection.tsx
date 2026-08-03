@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 const PILLARS = [
   {
@@ -63,48 +63,56 @@ const PILLARS = [
 const CYCLE_STAGES = ['Assess', 'Plan', 'Execute', 'Verify', 'Document', 'Review', 'Continue'];
 
 function CycleDiagram() {
+  const shouldReduceMotion = useReducedMotion();
   const cx = 120, cy = 120, r = 80;
   const total = CYCLE_STAGES.length;
 
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      <svg viewBox="0 0 240 240" className="w-[440px] h-[440px] sm:w-[480px] sm:h-[480px] max-w-full h-auto">
-        <circle cx={cx} cy={cy} r={r} stroke="rgba(255,255,255,0.08)" strokeWidth={1} fill="none" />
-        <circle cx={cx} cy={cy} r={r - 22} stroke="rgba(255,255,255,0.04)" strokeWidth={1} fill="none" />
+      <svg viewBox="0 0 240 240" className="w-[440px] h-[440px] sm:w-[580px] sm:h-[480px] max-w-full h-auto">
+        <g
+          className={shouldReduceMotion ? undefined : 'cycle-spin'}
+          style={{ transformOrigin: '50% 50%' }}
+        >
+          <circle cx={cx} cy={cy} r={r} stroke="rgba(255,255,255,0.08)" strokeWidth={1} fill="none" />
+          <circle cx={cx} cy={cy} r={r - 22} stroke="rgba(255,255,255,0.04)" strokeWidth={1} fill="none" />
 
-        {CYCLE_STAGES.map((stage, i) => {
-          const angle = (2 * Math.PI * i) / total - Math.PI / 2;
-          const x = cx + r * Math.cos(angle);
-          const y = cy + r * Math.sin(angle);
-          const nextAngle = (2 * Math.PI * ((i + 1) % total)) / total - Math.PI / 2;
-          const nx = cx + r * Math.cos(nextAngle);
-          const ny = cy + r * Math.sin(nextAngle);
-          const lx = cx + (r + 20) * Math.cos(angle);
-          const ly = cy + (r + 20) * Math.sin(angle);
+          {CYCLE_STAGES.map((stage, i) => {
+            const angle = (2 * Math.PI * i) / total - Math.PI / 2;
+            const x = cx + r * Math.cos(angle);
+            const y = cy + r * Math.sin(angle);
+            const nextAngle = (2 * Math.PI * ((i + 1) % total)) / total - Math.PI / 2;
+            const nx = cx + r * Math.cos(nextAngle);
+            const ny = cy + r * Math.sin(nextAngle);
+            const lx = cx + (r + 20) * Math.cos(angle);
+            const ly = cy + (r + 20) * Math.sin(angle);
 
-          return (
-            <g key={stage}>
-              <line
-                x1={x} y1={y} x2={nx} y2={ny}
-                stroke="rgba(255,255,255,0.12)"
-                strokeWidth={0.8}
-                strokeDasharray="3 3"
-              />
-              <circle cx={x} cy={y} r={4} fill="#b0a99a" opacity={0.7} />
-              <text
-                x={lx} y={ly}
-                textAnchor="middle"
-                dominantBaseline="central"
-                fontSize={8}
-                fill="rgba(255,255,255,0.45)"
-                fontFamily="sans-serif"
-                letterSpacing={1.5}
-              >
-                {stage.toUpperCase()}
-              </text>
-            </g>
-          );
-        })}
+            return (
+              <g key={stage}>
+                <line
+                  x1={x} y1={y} x2={nx} y2={ny}
+                  stroke="rgba(255,255,255,0.12)"
+                  strokeWidth={0.8}
+                  strokeDasharray="3 3"
+                />
+                <circle cx={x} cy={y} r={4} fill="#b0a99a" opacity={0.7} />
+                <g className={shouldReduceMotion ? undefined : 'cycle-counter'}>
+                  <text
+                    x={lx} y={ly}
+                    textAnchor="middle"
+                    dominantBaseline="central"
+                    fontSize={8}
+                    fill="rgba(255,255,255,0.45)"
+                    fontFamily="sans-serif"
+                    letterSpacing={1.5}
+                  >
+                    {stage.toUpperCase()}
+                  </text>
+                </g>
+              </g>
+            );
+          })}
+        </g>
 
         <text x={cx} y={cy - 7} textAnchor="middle" fontSize={7} fill="rgba(255,255,255,0.3)" fontFamily="sans-serif" letterSpacing={2}>
           AURELIUS
