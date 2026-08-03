@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const NAV_LINKS = [
@@ -19,29 +19,66 @@ const NAV_LINKS = [
     ],
   },
   {
-    name: "Services",
-    href: "/services",
-    sub: [
-      { name: "Appearance Management", href: "/services/appearance" },
-      { name: "Asset Preservation", href: "/services/preservation" },
-      { name: "Documentation", href: "/services/documentation" },
-    ],
-  },
+  name: "Services",
+  href: "/services",
+  sub: [
+    {
+      name: "Appearance Management",
+      href: "/services/appearance-management",
+    },
+    {
+      name: "Appearance Restoration",
+      href: "/services/appearance-restoration",
+      sub: [
+        {
+          name: "Exterior Deep Clean",
+          href: "/services/appearance-restoration/exterior-deep-clean",
+        },
+        {
+          name: "Paint Enhancement",
+          href: "/services/appearance-restoration/paint-enhancement",
+        },
+        {
+          name: "Brightwork",
+          href: "/services/appearance-restoration/brightwork",
+        },
+        {
+          name: "Cabin Restoration",
+          href: "/services/appearance-restoration/cabin-restoration",
+        },
+        {
+          name: "Protective Coatings",
+          href: "/services/appearance-restoration/protective-coatings",
+        },
+      ],
+    },
+    {
+      name: "Presentation Services",
+      href: "/services/presentation-services",
+    },
+  ],
+},
   {
     name: "Who We Serve",
     href: "/who",
     sub: [
-      { name: "Commercial Aviation", href: "/who-we-serve/commercial" },
-      { name: "Private & Charter", href: "/who-we-serve/private" },
-      { name: "Cargo & Freight", href: "/who-we-serve/cargo" },
+      { name: "Private Owners", href: "/who-we-serve/private" },
+      { name: "Corporate Flight Departments", href: "/who-we-serve/departments" },
+      { name: "Management Companies", href: "/who-we-serve/management" },
+      { name: "Charter Operators", href: "/who-we-serve/charter" },
+      { name: "Brokers & Dealers", href: "/who-we-serve/dealers" },
+      { name: "Facilities & Partners", href: "/who-we-serve/partners" },
     ],
   },
   {
     name: "Process",
     href: "/process",
     sub: [
-      { name: "Articles", href: "/process/articles" },
-      { name: "Case Studies", href: "/process/case-studies" },
+      { name: "Consultation", href: "/process/consultation" },
+      { name: "Baseline Assessment", href: "/process/baseline-assessment" },
+      { name: "Scope", href: "/process/scope" },
+      { name: "Corrective Phase", href: "/process/corrective-phase" },
+      { name: "Programme & Reporting", href: "/process/reporting" }
     ],
   },
   {
@@ -53,6 +90,70 @@ const NAV_LINKS = [
     ],
   },
 ];
+
+type SubLink = {
+  name: string;
+  href: string;
+  sub?: { name: string; href: string }[];
+};
+
+function DropdownItem({ item }: { item: SubLink }) {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const hasChildren = !!item.sub && item.sub.length > 0;
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  return (
+    <li
+      className="relative"
+      onMouseEnter={hasChildren ? handleMouseEnter : undefined}
+      onMouseLeave={hasChildren ? handleMouseLeave : undefined}
+    >
+      <Link
+        href={item.href}
+        className="flex items-center justify-between gap-4 px-6 py-3 text-[0.7rem] tracking-[0.25em] uppercase text-marble-white/60 hover:text-marble-white hover:bg-white/5 transition-all duration-200 whitespace-nowrap"
+      >
+        <span>{item.name}</span>
+        {hasChildren && (
+          <ChevronRight
+            size={12}
+            className={`shrink-0 transition-transform duration-200 ${open ? "translate-x-0.5" : ""}`}
+          />
+        )}
+      </Link>
+
+      {hasChildren && (
+        <div
+          className={`absolute left-full top-0 pl-2 transition-all duration-300 ease-out ${open ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 -translate-x-2 pointer-events-none"
+            }`}
+          style={{ minWidth: "220px" }}
+        >
+          <div className="bg-imperial-black/45 backdrop-blur-md border border-white/8 shadow-2xl rounded-lg overflow-hidden">
+            <ul className="py-3">
+              {item.sub!.map((subItem) => (
+                <li key={subItem.name}>
+                  <Link
+                    href={subItem.href}
+                    className="block px-6 py-3 text-[0.7rem] tracking-[0.25em] uppercase text-marble-white/60 hover:text-marble-white hover:bg-white/5 transition-all duration-200 whitespace-nowrap"
+                  >
+                    {subItem.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </li>
+  );
+}
 
 function NavItem({ link }: { link: typeof NAV_LINKS[number] }) {
   const [open, setOpen] = useState(false);
@@ -84,19 +185,12 @@ function NavItem({ link }: { link: typeof NAV_LINKS[number] }) {
             }`}
           style={{ minWidth: "200px" }}
         >
-          <div className="bg-imperial-black/45 backdrop-blur-md border border-white/8 shadow-2xl rounded-lg overflow-hidden">
+          <div className="bg-imperial-black/45 backdrop-blur-md border border-white/8 shadow-2xl rounded-lg overflow-visible">
             <div className="absolute -top-[6px] left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-imperial-black/95 border-l border-t border-white/8" />
 
             <ul className="py-3">
               {link.sub.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="block px-6 py-3 text-[0.7rem] tracking-[0.25em] uppercase text-marble-white/60 hover:text-marble-white hover:bg-white/5 transition-all duration-200 whitespace-nowrap"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
+                <DropdownItem key={item.name} item={item} />
               ))}
             </ul>
           </div>
@@ -135,7 +229,7 @@ export default function Header() {
         <div
           className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.2,1)] flex items-center border pointer-events-auto ${isCollapsed
             ? "w-[80px] h-[80px] rounded-xl justify-center bg-white/5 hover:bg-white/10 border-white/10 shadow-2xl overflow-hidden translate-x-[calc(50vw-64px)] md:translate-x-[calc(50vw-88px)]"
-            : "w-[calc(100vw-1.5rem)] md:w-[calc(100vw-3rem)] h-[72px] rounded-xl justify-between px-6 md:px-8 bg-imperial-black/30 backdrop-blur-xl border-white/5 shadow-lg translate-x-0"
+            : "w-[calc(100vw-1.5rem)] md:w-[calc(100vw-3rem)] h-[72px] rounded-xl justify-between px-6 md:px-8 bg-imperial-black/30 backdrop-blur-xl border border-white/10 shadow-lg translate-x-0"
             }`}
         >
           {/* Logo container */}
