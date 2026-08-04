@@ -229,13 +229,13 @@ export default function Header() {
         <div
           className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.2,1)] flex items-center border pointer-events-auto ${isCollapsed
             ? "w-[80px] h-[80px] rounded-xl justify-center bg-white/5 hover:bg-white/10 border-white/10 shadow-2xl overflow-hidden translate-x-[calc(50vw-64px)] md:translate-x-[calc(50vw-88px)]"
-            : "w-[calc(100vw-1.5rem)] md:w-[calc(100vw-3rem)] h-[72px] rounded-xl justify-between px-6 md:px-8 bg-imperial-black/30 backdrop-blur-xl border border-white/10 shadow-lg translate-x-0"
+            : "w-[calc(100vw-1.5rem)] md:w-[calc(100vw-3rem)] h-[72px] rounded-xl justify-between pl-2 md:pl-3 pr-6 md:pr-8 bg-imperial-black/30 backdrop-blur-xl border border-white/10 shadow-lg translate-x-0"
             }`}
         >
           {/* Logo container */}
           <div
-            className={`flex items-center justify-center shrink-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.2,1)]
-    ${isCollapsed ? "w-[120px] h-[80px]" : "w-[200px] h-[72px]"}
+            className={`flex items-center shrink-0 transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.2,1)]
+    ${isCollapsed ? "w-[120px] h-[80px] justify-center" : "w-[200px] h-[72px] justify-start"}
   `}
           >
             <Link
@@ -246,7 +246,7 @@ export default function Header() {
                 src="/logo-demo1.png"
                 alt="Aurelius Aviation"
                 fill
-                className="object-contain"
+                className={`object-contain ${isCollapsed ? "object-center" : "object-left"}`}
                 priority
               />
             </Link>

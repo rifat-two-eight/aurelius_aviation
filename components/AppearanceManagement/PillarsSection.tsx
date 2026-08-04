@@ -185,7 +185,7 @@ export default function PillarsSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: false, margin: '-80px' }}
             className="flex justify-center items-center"
           >
             <CycleDiagram />
@@ -197,7 +197,7 @@ export default function PillarsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: false, margin: '-80px' }}
           className="mb-8"
         >
           <h3 className="font-heading text-[clamp(1.5rem,3vw,2.5rem)] font-normal tracking-[0.1em] uppercase text-marble-white mb-2">
@@ -213,7 +213,7 @@ export default function PillarsSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: idx * 0.12, ease: 'easeOut' }}
-              viewport={{ once: true, margin: '-60px' }}
+              viewport={{ once: false, margin: '-60px' }}
               className="group relative bg-black/50 border border-white/30 p-8 md:p-10 hover:bg-white/[0.025] transition-colors duration-500"
             >
               <div className="mb-6 flex items-start justify-between">

@@ -3,6 +3,13 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 // ─── 10.8 Why Aurelius ───────────────────────────────────────────────────────
 
@@ -63,6 +70,9 @@ const PROCESS_STEPS = [
 
 export default function Institution() {
   const containerRef = useRef<HTMLElement>(null);
+  const whyRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start'],
@@ -70,17 +80,91 @@ export default function Institution() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
+  const { scrollYProgress: whyScrollY } = useScroll({
+    target: whyRef,
+    offset: ['start end', 'end start'],
+  });
+  const whyBgY = useTransform(whyScrollY, [0, 1], ['0%', '15%']);
+  const whyBgScale = useTransform(whyScrollY, [0, 1], [1, 1.1]);
+
+  // GSAP ScrollTrigger Scrubbed Bento Gallery Animation
+  useGSAP(() => {
+    const cards = gsap.utils.toArray('.why-card');
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: gridRef.current,
+        start: 'top 95%',
+        end: 'bottom 80%',
+        scrub: 0.3,
+      }
+    });
+
+    cards.forEach((card, index) => {
+      let initialX = 0;
+      let initialY = 50;
+      let initialScale = 0.95;
+
+      const colPattern = index % 3;
+      if (colPattern === 0) {
+        initialX = -100;
+        initialY = 15;
+      } else if (colPattern === 2) {
+        initialX = 100;
+        initialY = 15;
+      } else {
+        initialX = 0;
+        initialY = 70;
+        initialScale = 0.9;
+      }
+
+      tl.fromTo(card as any,
+        {
+          opacity: 0,
+          x: initialX,
+          y: initialY,
+          scale: initialScale
+        },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          ease: 'power2.out',
+        },
+        index * 0.02
+      );
+    });
+  }, { scope: whyRef });
+
   return (
     <>
       {/* ── 10.8 Why Aurelius ──────────────────────────────────────────────── */}
-      <section className="bg-imperial-black py-24 md:py-32 border-t border-white/5">
-        <div className="container mx-auto px-6 md:px-12">
+      <section ref={whyRef} className="relative py-24 md:py-32 border-t border-white/5 overflow-hidden bg-imperial-black">
+        {/* Background Parallax Image */}
+        <motion.div
+          className="absolute inset-0 z-0 origin-center opacity-40"
+          style={{ y: whyBgY, scale: whyBgScale, willChange: "transform" }}
+        >
+          <Image
+            src="/plane2.jpg"
+            alt="Why Aurelius"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
+
+        {/* Overlay to blend background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c]/80 via-[#0a0a0c]/55 to-[#0a0a0c] z-10 pointer-events-none" />
+
+        <div className="relative z-20 container mx-auto px-6 md:px-12">
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: false, margin: '-80px' }}
             className="mb-20"
           >
             <h2 className="font-heading text-[clamp(2rem,4vw,3.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-4">
@@ -89,29 +173,43 @@ export default function Institution() {
             <div className="h-[1px] w-12 bg-architectural-chrome" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/6">
-            {DIFFERENTIATORS.map((item, idx) => (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: (idx % 2) * 0.1 }}
-                viewport={{ once: true, margin: '-60px' }}
-                className="bg-imperial-black px-8 py-10 md:px-12 flex gap-8 hover:bg-white/[0.025] transition-colors duration-500 group"
-              >
-                <span className="font-body text-[2rem] font-light tracking-widest text-white/30 leading-none shrink-0 mt-1">
-                  {item.number}
-                </span>
-                <div>
-                  <h3 className="font-heading text-[clamp(1rem,1.6vw,1.3rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="font-body text-[0.85rem] tracking-[0.02em] leading-[1.85] text-travertine-stone/80">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {DIFFERENTIATORS.map((item, idx) => {
+              const getColSpan = (i: number) => {
+                if (i === 0 || i === 3) return 'md:col-span-2';
+                if (i === 7) return 'md:col-span-3';
+                return 'md:col-span-1';
+              };
+
+              return (
+                <motion.div
+                  key={item.number}
+                  whileHover={{ y: -4, borderColor: 'rgba(255, 255, 255, 0.6)' }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 150,
+                    damping: 15,
+                    duration: 0.3
+                  }}
+                  className={`why-card group relative flex gap-6 md:gap-8 p-8 md:p-10 bg-black/50 hover:bg-white/[0.025] border border-white/30 rounded-none transition-all duration-500 overflow-hidden select-none opacity-0 ${getColSpan(idx)}`}
+                >
+                  {/* Subtle hover gradient glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.015] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                  <span className="font-heading text-xl md:text-2xl tracking-[0.1em] text-travertine-stone/30 font-medium shrink-0 mt-1">
+                    {item.number}
+                  </span>
+                  <div className="relative z-10">
+                    <h3 className="font-heading text-[clamp(1rem,1.6vw,1.3rem)] font-normal tracking-[0.08em] uppercase text-travertine-stone group-hover:text-marble-white transition-colors duration-300 mb-4">
+                      {item.title}
+                    </h3>
+                    <p className="font-body text-[0.85rem] tracking-[0.02em] leading-[1.85] text-travertine-stone/80">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -138,7 +236,7 @@ export default function Institution() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={{ once: false, margin: '-80px' }}
             className="mb-20"
           >
             <h2 className="font-heading text-[clamp(2rem,4vw,3.5rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-4">
@@ -159,7 +257,7 @@ export default function Institution() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: idx * 0.08 }}
-                  viewport={{ once: true, margin: '-40px' }}
+                  viewport={{ once: false, margin: '-40px' }}
                   className="relative flex gap-8 md:gap-14 pb-12 group"
                 >
                   {/* Dot on timeline */}
@@ -171,7 +269,7 @@ export default function Institution() {
 
                   <div className="pb-2">
                     <span className="md:hidden font-body text-[0.6rem] tracking-[0.35em] uppercase text-architectural-chrome block mb-2">{step.step}</span>
-                    <h3 className="font-heading text-[clamp(1rem,1.8vw,1.4rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-3 group-hover:text-white transition-colors duration-400">
+                    <h3 className="font-heading text-[clamp(1rem,1.8vw,1.4rem)] font-normal tracking-[0.08em] uppercase text-marble-white mb-3 group-hover:text-marble-white transition-colors duration-400">
                       {step.title}
                     </h3>
                     <p className="font-body text-[0.85rem] tracking-[0.02em] leading-[1.85] text-travertine-stone/75 max-w-[680px]">
