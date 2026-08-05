@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <Philosophy />
       <AppearanceManagement />
-      <SpecializedServices />
+      {/* <SpecializedServices /> */}
       <Institution />
       <Footer />
     </div>
