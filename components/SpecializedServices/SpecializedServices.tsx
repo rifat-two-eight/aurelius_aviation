@@ -87,8 +87,8 @@ export default function SpecializedServices() {
   useGSAP(() => {
     gsap.fromTo(
       '.client-card',
-      { 
-        opacity: 0, 
+      {
+        opacity: 0,
         x: (index: number) => {
           if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
             const col = index % 3;
@@ -204,7 +204,7 @@ export default function SpecializedServices() {
             className="object-cover object-center"
           />
         </motion.div>
-        
+
         {/* Overlay to blend background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c]/80 via-[#0a0a0c]/50 to-[#0a0a0c] z-10 pointer-events-none" />
 

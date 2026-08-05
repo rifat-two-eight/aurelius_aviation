@@ -6,12 +6,17 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+
+// Module-level cache to persist intro state across client-side router navigations
+let globalIntroHasPlayed = false;
 
 export default function IntroOverlay() {
   const { scrollY } = useScroll();
   const maxScroll = useMotionValue(0);
 
   const [isClient, setIsClient] = useState(false);
+  const [hasVisited, setHasVisited] = useState(globalIntroHasPlayed);
 
   const logoRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
@@ -25,17 +30,29 @@ export default function IntroOverlay() {
   useEffect(() => {
     setIsClient(true);
 
-    // Disable automatic browser scroll restoration on refresh/load
-    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
+    if (typeof window !== 'undefined') {
+      const isNotRoot = window.location.pathname !== '/';
+
+      if (globalIntroHasPlayed || isNotRoot) {
+        setHasVisited(true);
+        document.documentElement.classList.remove('intro-active');
+        document.documentElement.classList.add('intro-dismissed');
+        globalIntroHasPlayed = true;
+      } else {
+        setHasVisited(false);
+        // Disable automatic browser scroll restoration on refresh/load
+        if ('scrollRestoration' in window.history) {
+          window.history.scrollRestoration = 'manual';
+        }
+
+        // Force scroll position to the top immediately on mount
+        window.scrollTo(0, 0);
+        maxScroll.set(0);
+
+        document.documentElement.classList.add('intro-active');
+        document.documentElement.classList.remove('intro-dismissed');
+      }
     }
-
-    // Force scroll position to the top immediately on mount
-    window.scrollTo(0, 0);
-    maxScroll.set(0);
-
-    document.documentElement.classList.add('intro-active');
-    document.documentElement.classList.remove('intro-dismissed');
   }, [maxScroll]);
 
   // Track maximum scroll reached to freeze the shutter on scroll-up
@@ -54,6 +71,7 @@ export default function IntroOverlay() {
       if (latest > 30) {
         document.documentElement.classList.remove('intro-active');
         document.documentElement.classList.add('intro-dismissed');
+        globalIntroHasPlayed = true;
       }
     });
     return () => unsubscribe();
@@ -112,7 +130,11 @@ export default function IntroOverlay() {
   const pointerEvents = useTransform(maxScroll, (v) => v > 240 ? 'none' : 'auto');
   const display = useTransform(maxScroll, (v) => v > 250 ? 'none' : 'flex');
 
+  const pathname = usePathname();
 
+  if (pathname !== '/' || hasVisited) {
+    return null;
+  }
 
   return (
     <motion.div
