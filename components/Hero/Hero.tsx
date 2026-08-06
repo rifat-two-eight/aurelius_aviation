@@ -26,6 +26,12 @@ export default function Hero() {
   // Fade out gradient overlay so the sky becomes fully clear
   const gradientOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  // Scroll-linked transforms for the flying plane icon
+  const planeLeft = useTransform(scrollYProgress, [0.05, 0.5], ["-10%", "110%"]);
+  const planeTop = useTransform(scrollYProgress, [0.05, 0.5], ["10%", "90%"]);
+  const planeScale = useTransform(scrollYProgress, [0.05, 0.5], [0.6, 1.3]);
+  const planeOpacity = useTransform(scrollYProgress, [0.05, 0.15, 0.4, 0.5], [0, 0.85, 0.85, 0]);
+
   return (
     <main ref={containerRef} className="relative h-[350vh] w-full bg-imperial-black">
       <div className="sticky top-0 left-0 flex h-screen w-full items-center justify-center overflow-hidden">
@@ -41,6 +47,172 @@ export default function Hero() {
           className="absolute left-0 top-0 z-0 h-full w-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/sky.png')", scale: skyScale, opacity: skyOpacity }}
         /> */}
+
+        {/* Scroll-Linked Flying Plane Icon */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            left: planeLeft,
+            top: planeTop,
+            scale: planeScale,
+            opacity: planeOpacity,
+            rotate: 135,
+            willChange: 'left, top, opacity',
+          }}
+          className="z-25 pointer-events-none hidden md:block"
+        >
+          <svg
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-travertine-stone/30 drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)] animate-pulse"
+          >
+            <path
+              d="M21 16V14L13 9V3.5C13 2.67 12.33 2 11.5 2C10.67 2 10 2.67 10 3.5V9L2 14V16L10 13.5V19L8 20.5V22L11.5 21L15 22V20.5L13 19V13.5L21 16Z"
+              fill="currentColor"
+            />
+          </svg>
+        </motion.div>
+
+        {/* Floating & Rotating 3D Perspective Wireframe Plane at Bottom Right */}
+        <div className="absolute bottom-6 right-6 md:bottom-16 md:right-16 z-30 select-none pointer-events-none w-32 h-32 md:w-48 md:h-48">
+          {/* Wind streaks showing movement in the sky */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+            <motion.div
+              className="absolute h-[1px] w-12 bg-white/40 top-[25%] left-0"
+              initial={{ x: "180px" }}
+              animate={{ x: "-180px" }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute h-[1px] w-20 bg-white/20 top-[55%] left-0"
+              initial={{ x: "180px" }}
+              animate={{ x: "-180px" }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: "linear", delay: 0.6 }}
+            />
+            <motion.div
+              className="absolute h-[1px] w-16 bg-white/30 top-[80%] left-0"
+              initial={{ x: "180px" }}
+              animate={{ x: "-180px" }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: 0.3 }}
+            />
+          </div>
+
+          <motion.div
+            style={{
+              perspective: 1000,
+              transformStyle: "preserve-3d",
+              width: "100%",
+              height: "100%"
+            }}
+            animate={{
+              rotateY: [-10, 10, -10],   // Yaw (turning side-to-side)
+              rotateX: [12, 22, 12],     // Pitch (nose up/down)
+              rotateZ: [-6, 6, -6],      // Banking roll (flight tilt)
+              y: [-8, 8, -8],            // Altitude drift
+              x: [-3, 3, -3]             // Lateral drift
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="flex items-center justify-center filter drop-shadow-[0_0_12px_rgba(197, 185, 243, 0.25)]"
+          >
+            <svg
+              width="200"
+              height="200"
+              viewBox="0 0 100 100"
+              fill="none"
+              stroke="rgba(208, 200, 240, 0.31)"
+              strokeWidth="0.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-full h-full"
+            >
+              {/* Main Outer Profile */}
+              <motion.path
+                d="M50 15 L55 35 L85 55 L85 58 L54 50 L53 78 L65 85 L65 88 L50 85 L35 88 L35 85 L47 78 L46 50 L15 58 L15 55 L45 35 Z"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  repeatDelay: 3
+                }}
+              />
+              {/* 3D Fuselage Longitudinal Lines (Perspective Creases) */}
+              <motion.path
+                d="M50 15 L50 85 M50 15 C46 30 46 65 50 85 M50 15 C54 30 54 65 50 85"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  repeatDelay: 3
+                }}
+              />
+              {/* 3D Fuselage Cross Sections (Cylinder Rings) */}
+              <motion.path
+                d="M47 35 A 3 1.5 0 0 0 53 35 M45 48 A 5 2.5 0 0 0 55 48 M46 62 A 4 2 0 0 0 54 62 M47 72 A 3 1.5 0 0 0 53 72"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  repeatDelay: 3
+                }}
+              />
+              {/* Left Wing 3D Structural Spars */}
+              <motion.path
+                d="M45 35 L15 55 M45 48 L15 58 M46 50 L15 58"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  repeatDelay: 3
+                }}
+              />
+              {/* Right Wing 3D Structural Spars */}
+              <motion.path
+                d="M55 35 L85 55 M55 48 L85 58 M54 50 L85 58"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  repeatDelay: 3
+                }}
+              />
+              {/* Tail Fin 3D Ribs */}
+              <motion.path
+                d="M50 68 L50 82 L53 78 M50 82 L35 85 M50 82 L65 85"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  repeatDelay: 3
+                }}
+              />
+            </svg>
+          </motion.div>
+        </div>
 
         {/* Window Overlay scaling up and fading out */}
         <motion.div
