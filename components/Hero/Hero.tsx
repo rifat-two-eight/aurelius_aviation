@@ -11,8 +11,8 @@ export default function Hero() {
     offset: ["start start", "end start"]
   });
 
-  // Scale the window up massively so the transparent center fills the viewport
-  const windowScale = useTransform(scrollYProgress, [0, 1], [1, 4]);
+  // Scale the window up to a moderate level so the zoom is gentler and less intense
+  const windowScale = useTransform(scrollYProgress, [0, 0.65], [1, 2.2]);
 
   // Slight parallax scale for the sky background
   const skyScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
@@ -20,8 +20,8 @@ export default function Hero() {
   // Fade in sky background slightly after scroll starts
   const skyOpacity = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
 
-  // Fade out window image completely as we reach max zoom
-  const windowOpacity = useTransform(scrollYProgress, [0.6, 1], [1, 0]);
+  // Fade out window image completely as we reach max zoom (finish by 0.65 to prevent overlap with Philosophy scroll-up)
+  const windowOpacity = useTransform(scrollYProgress, [0.35, 0.65], [1, 0]);
 
   // Fade out gradient overlay so the sky becomes fully clear
   const gradientOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);

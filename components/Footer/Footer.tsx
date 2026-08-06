@@ -1,10 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
     <footer className="bg-imperial-black pt-24 md:pt-32 pb-16 border-t border-white/10 relative overflow-hidden">
+      {/* Background Image for "Begin the Conversation" Section */}
+      <div className="absolute top-0 left-0 w-full h-[620px] z-0 opacity-80 pointer-events-none">
+        <Image
+          src="/begin3.png"
+          alt="Begin the Conversation"
+          fill
+          className="object-fill"
+        />
+        {/* Gradient Overlay to blend background: dark top, light center, dark bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c] via-[#0a0a0c]/15 to-[#0a0a0c]" />
+      </div>
+
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
         {/* Request Assessment CTA */}
