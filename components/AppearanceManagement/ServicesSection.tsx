@@ -89,6 +89,9 @@ export default function ServicesSection() {
 
   const titleOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0.25]);
 
+  const bgY = useTransform(scrollYProgress, [0, 1], ['20%', '-20%']);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.3, 1.3]);
+
   return (
     <section
       ref={trackRef}
@@ -96,6 +99,22 @@ export default function ServicesSection() {
       style={{ height: `${total * 120}vh` }}
     >
       <div className="sticky top-0 left-0 h-screen w-full overflow-hidden flex flex-col justify-center">
+        {/* Background Parallax Image */}
+        <motion.div
+          className="absolute inset-0 z-0 origin-center opacity-100"
+          style={{ y: bgY, scale: bgScale, willChange: "transform" }}
+        >
+          <Image
+            src="/plane3.jpg"
+            alt="What We Offer Background"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
+          />
+        </motion.div>
+        {/* Dark vignette overlay for luxury contrast and blending */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c] via-[#0a0a0c]/80 to-[#0a0a0c] z-0 pointer-events-none" />
 
         {/* Section title — fades out as cards scroll */}
         <div className="absolute top-16 left-8 md:left-16 z-20 pointer-events-none">
@@ -115,7 +134,7 @@ export default function ServicesSection() {
 
         {/* Horizontal sliding track */}
         <motion.div
-          className="flex flex-row w-max gap-32 px-6 md:px-12"
+          className="relative z-10 flex flex-row w-max gap-32 px-6 md:px-12"
           style={{ x: xTranslate, willChange: "transform" }}
         >
           {SERVICES.map((service) => (
